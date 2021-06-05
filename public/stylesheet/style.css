@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+    color:aqua;
+    background-color:black;
+  }
+
+  h1 {
+      color: rgb(106, 150, 207);
+  }
