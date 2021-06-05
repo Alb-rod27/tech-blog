@@ -74,7 +74,6 @@ router.post('/logout', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
   User.update(req.body, {
     individualHooks: true,
@@ -113,3 +112,5 @@ router.delete('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+module.exports = router;
