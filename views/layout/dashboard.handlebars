@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech-Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body "card-panel black-2">
+    <nav>
+        <div class="nav-wrapper background-color white-text black-4">
+            <a href="#" class="brand-logo center font-size large">Tech-Blog</a>
+            <ul>
+                <li> <a href="/">Home</a> </li>
+                <li> <a href="/dashboard"> Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <h2>Create New Post</h2>
+        <form class="new-post-form">
+            <div>
+                <label for="post-title">Title</label>
+                <input type="text" id="post-title" name="post-title" />
+            </div>
+            <div>
+                <label for="post-url">Content</label>
+                <input id="post-url" name="post-url" />
+            </div>
+            <button type="submit" class="btn">Create</button>
+        </form>
+    </section>
+    {{#if posts.length}}
+    <section>
+        <h2>Your Posts</h2>
+        <ol>
+            {{#each posts as |post|}}
+            <li>
+                {{> post-info post}}
+                <a href="/post/{{post.id}}" class="edit-link">View Post</a>
+                {{ body }}
+            </li>
+            {{/each}}
+        </ol>
+    </section>
+    {{/if}}
+    <footer>
+        <h5>Thanks for visiting!</h5>
+    </footer>
+</body>
+
+<script src="/javascript/add-post.js"></script>
+
+</html>

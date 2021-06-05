@@ -1,0 +1,17 @@
+<div class="post brown-text text-darken-2 ">
+    {{#each posts}}
+    <div class="card-header">
+        <h4 class="">
+            {{!-- <a class="white-text brown darken-4" href="/posts/{{id}}">{{title}}</a> --}}
+            <a class="white-text brown darken-4" href="/post/{{id}}">{{title}}</a>
+        </h4>
+    </div>
+    <div>
+        posted by {{User.username}} on {{format_date createdAt}}
+    </div>
+
+    <div class="card-body">
+        {{body}}
+    </div>
+    {{/each}}
+</div>
