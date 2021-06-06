@@ -1,27 +1,18 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const sequelize = require("../config/connections");
 
-class Comment extends Model { }
+class Comment extends Model {}
 
 Comment.init(
     {
-        body: DataTypes.STRING,
-
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        post_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
+        body: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     },
 
     {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: "comment",
+        sequelize
     }
 );
 

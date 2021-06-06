@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/all', (req, res) => {
+router.get('/', (req, res) => {
     Comment.findAll()
         .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {
@@ -11,17 +11,13 @@ router.get('/all', (req, res) => {
         });
 });
 
-
-
 //comments/
 router.post('/', withAuth, (req, res) => {
     console.log(req.body);
     Comment.create({
-        // title: req.body.title,
-        body: req.body.body,
-
+        comment_text: req.body.comment_text,
         user_id: req.session.user_id,
-        post_id: req.body.post_id,
+        post_id: req.body.post_id
 
     })
         .then(dbCommentData => {
